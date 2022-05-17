@@ -2,12 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import HomePage from  './home'
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
+import Listening from "./listening/listening";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Router>
+        <Routes>
+            <Route exact path="/" element={<App/>}/>
+            <Route exact path="/home" element={<HomePage/>}/>
+            <Route exact path="/listening" element={<Listening/>}/>
+        </Routes>
+    </Router>,
   document.getElementById('root')
 );
 

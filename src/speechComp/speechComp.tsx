@@ -7,9 +7,10 @@ import Grow from '@mui/material/Grow';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import './speechComp.css'
 import {useEffect} from "react";
+import {useState} from "react";
 
 
-export const SpeechCom = () => {
+export const SpeechCom = (props:any) => {
 
     const icon = (
         <Paper sx={{ m: 1 }} elevation={4}>
@@ -27,21 +28,36 @@ export const SpeechCom = () => {
         </Paper>
     );
 
-    const label = (<h1>OK</h1>) ;
+    const label = (<h1>{props.word}</h1>) ;
 
     const [checked, setChecked] = React.useState(false);
+    const [show, setShow] = useState(true);
+
+    const showHide = () => {
+        setShow((prev) => !prev);
+    }
 
     const handleChange = () => {
             setChecked((prev) => !prev);
+            setShow((prev) => !prev);
+            //setTimeout(showHide, 1000);
     };
 
-    const startListening = () =>{
 
+    const changeAfterSec = async () =>{
+        await delay(2000);
+    }
+
+    function delay(time:any) {
+        return new Promise(resolve => setTimeout(resolve, time));
     }
 
     useEffect(() => {
-
-    },[]);
+        console.log('changed',props.word);
+        //setChecked((prev) => !prev);
+        //handleChange();
+        //changeAfterSec();
+    },[props.word]);
 
     return(
         <>
@@ -53,7 +69,7 @@ export const SpeechCom = () => {
                     />
                 </Box>
                 <Box>
-                    <Grow in={checked} style={{ transformOrigin: '0 0 0' }} {...(checked ? { timeout: 1000 } : {})}>
+                    <Grow in={show} style={{ transformOrigin: '0 0 0' }} {...(show ? { timeout: 1000 } : {})}>
                         {label}
                     </Grow>
                 </Box>

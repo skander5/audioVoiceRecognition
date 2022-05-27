@@ -88,6 +88,34 @@ export default class VoiceAssistant {
         },this.options);
     }
 
+    async beginAssistance(onListen) {
+        const recognizer = await this.buildModel2();
+        const classLabels = recognizer.wordLabels(); // get class labels
+        console.log('sssss ',classLabels);
+
+        // listen() takes two arguments:
+        // 1. A callback function that is invoked anytime a word is recognized.
+        // 2. A configuration object with adjustable fields
+        recognizer.listen(result => {
+            const scores = result.scores; // probability of prediction for each class
+            // render the probability scores per class
+            const score = Array.from(scores).map((s, i) => ({score: s, word: i}));
+            score.sort((s1, s2) => s2.score - s1.score);
+            console.log(score[0].word);
+            onListen(classLabels[score[0].word]);
+            for (let i = 0; i < classLabels.length; i++) {
+                //const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+                //labelContainer.childNodes[i].innerHTML = classPrediction;
+
+            }
+        }, {
+            includeSpectrogram: true, // in case listen should return result.spectrogram
+            probabilityThreshold: 0.75,
+            invokeCallbackOnNoiseAndUnknown: true,
+            overlapFactor: 0.75 // probably want between 0.5 and 0.75. More info in README
+        });
+    }
+
     async speech(text){
         const voices = window.speechSynthesis.getVoices() ;
         const speechToSay = new window.SpeechSynthesisUtterance(text);

@@ -1,0 +1,29 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+    background-color: aliceblue;
+}
+
+.camera
+{
+    width: 45%;
+    height: 240px;
+    border-radius: 100%;
+    overflow: hidden;
+    /*background-color: red;*/
+}
+
+.avatarImage
+{
+    width: 45%;
+    height: 240px;
+    border-radius: 100%;
+    overflow: hidden;
+    /*background-color: red;*/
+}
+
+canvas {
+    width: 100%;
+    height: 240px;
+    border-radius: 100%;
+}

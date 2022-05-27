@@ -10,21 +10,34 @@ import './listening.css'
 import voiceVisualizer from "../voiceVisualizer";
 import SpeechComp from "../speechComp/speechComp";
 import {sort} from "../Utils/methodUtils";
+import voiceAssistant from "../voiceAssistant";
 
 export const Listening = () => {
+
+    let processingWord : any ;
+    const [processWord, setProcessWord] = useState('null');
+
+    function onListen(word:any) {
+        console.log("Word: ", word);
+        processingWord = word;
+        setProcessWord(word);
+    }
 
     const start = async () => {
         console.log('ddddddd');
         const visualizer = new voiceVisualizer();
         await visualizer.startVisualization();
+        const assistant = new voiceAssistant();
+        assistant.beginAssistance(onListen);
         console.log(sort().get('Un'));
     }
+
 
     return (
         <div className="waveWrapper waveAnimation">
             <button onClick={()=> start()}>OK</button>
             <div className="SpeechComp">
-                <SpeechComp/>
+                <SpeechComp word={processWord}/>
             </div>
             <div className="">
                 <div className="bgTop">

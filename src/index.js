@@ -6,6 +6,7 @@ import HomePage from  './home'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 import Listening from "./listening/listening";
+import FacialRecognition from "./facialRecognition/authenticate";
 
 ReactDOM.render(
     <Router>
@@ -13,6 +14,7 @@ ReactDOM.render(
             <Route exact path="/" element={<App/>}/>
             <Route exact path="/home" element={<HomePage/>}/>
             <Route exact path="/listening" element={<Listening/>}/>
+            <Route exact path="/signin" element={<FacialRecognition/>}/>
         </Routes>
     </Router>,
   document.getElementById('root')

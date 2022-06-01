@@ -24,7 +24,7 @@ export default class VoiceAssistant {
     async buildModel2() {
         const URL = "https://teachablemachine.withgoogle.com/models/jQCtiR-5Q/";
             //"https://teachablemachine.withgoogle.com/models/Q5la5iSw1/";
-
+            //https://teachablemachine.withgoogle.com/models/jQCtiR-5Q/
         const checkpointURL = URL + "model.json"; // model topology
         const metadataURL = URL + "metadata.json"; // model metadata
 
@@ -88,7 +88,7 @@ export default class VoiceAssistant {
         },this.options);
     }
 
-    async beginAssistance(onListen) {
+    async   beginAssistance(onListen) {
         const recognizer = await this.buildModel2();
         const classLabels = recognizer.wordLabels(); // get class labels
         console.log('sssss ',classLabels);
@@ -114,6 +114,10 @@ export default class VoiceAssistant {
             invokeCallbackOnNoiseAndUnknown: true,
             overlapFactor: 0.75 // probably want between 0.5 and 0.75. More info in README
         });
+    }
+
+    async stopAssistant(recognizer) {
+        await recognizer.stopListening();
     }
 
     async speech(text){

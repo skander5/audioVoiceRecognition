@@ -8,6 +8,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import './speechComp.css'
 import {useEffect} from "react";
 import {useState} from "react";
+import {Button, Grid, TextField} from "@mui/material";
+import avatar from "../ressources/avatar.png";
 
 
 export const SpeechCom = (props:any) => {
@@ -61,21 +63,16 @@ export const SpeechCom = (props:any) => {
 
     return(
         <>
-            <Box sx={{ display: 'flex',justifyContent: 'center',flexDirection:'column',ml:67}}>
-                <Box>
-                    <FormControlLabel
-                        control={<Switch checked={checked} onChange={handleChange} />}
-                        label="Show"
-                    />
-                </Box>
-                <Box>
-                    <Grow in={show} style={{ transformOrigin: '0 0 0' }} {...(show ? { timeout: 1000 } : {})}>
-                        {label}
-                    </Grow>
-                </Box>
-            </Box>
-            <Box id="visualizer-container" sx={{ display: 'flex',justifyContent: 'center'}}>
-                <canvas id="output" width="400" height="200"></canvas>
+            <Box className="d-flex flex-row justify-content-center align-items-center mt-5">
+                <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                >
+                    {label}
+                    <canvas id="output" width="400" height="200"></canvas>
+                </Grid>
             </Box>
         </>
     );

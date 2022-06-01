@@ -9,19 +9,32 @@ import VoiceAssistant from "../voiceAssistant";
 import './listening.css'
 import voiceVisualizer from "../voiceVisualizer";
 import SpeechComp from "../speechComp/speechComp";
-import {sort} from "../Utils/methodUtils";
+import {numberTab, sort} from "../Utils/methodUtils";
 import voiceAssistant from "../voiceAssistant";
+import {wordAction} from "../speechComp/speechAction";
 
 export const Listening = () => {
 
     let processingWord : any ;
+    let numDossier = "" ;
+
     const [processWord, setProcessWord] = useState('null');
 
-    function onListen(word:any) {
+    async function onListen(word:any) {
         console.log("Word: ", word);
-        processingWord = word;
         setProcessWord(word);
+
+        if(numberTab.includes(word)){
+            numDossier = numDossier.concat(sort().get(word));
+        }
+        if(word !== "Bruit de fond") {
+            if(processingWord !== word)
+            await wordAction({previousWord: processingWord, currentWord: word, number: numDossier});
+            processingWord = word;
+        }
+
     }
+
 
     const start = async () => {
         console.log('ddddddd');

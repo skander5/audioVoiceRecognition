@@ -1,0 +1,13 @@
+
+.userFullName{
+    font-family: "Century Gothic";
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.userDetails {
+    font-family: "Century Gothic";
+    font-weight: bold;
+    color: darkgray;
+    font-size: medium;
+}

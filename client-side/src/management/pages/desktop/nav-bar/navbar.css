@@ -1,0 +1,234 @@
+.s-layout {
+  z-index: 1;
+  display: flex;
+  flex-shrink: 0;
+  width: 15em;
+  min-height: 600px;
+  height: 100vh;
+  width: 4em;
+  position: relative;
+}
+.log-img {
+  display: none;
+  margin-left: 70px;
+  margin-top: 55px;
+  height: 70px;
+}
+.icon-menu-bottom {
+  display: none;
+  margin-left: 60px;
+  height: 50px;
+  bottom: 30px !important;
+  position: absolute;
+}
+.icone-menu {
+  margin-left: 10px !important;
+  margin-top: 14px !important;
+  height: 40px !important;
+  width: 40px !important;
+  display: flex !important;
+  color: rgba(56, 56, 56, 0.87) !important;
+}
+.small-icon-menu-bottom {
+  bottom: 20px !important;
+  position: absolute;
+  margin-left: 10px !important;
+  margin-top: 14px !important;
+  width: 40px !important;
+  display: flex !important;
+  color: rgba(56, 56, 56, 0.87) !important;
+}
+
+.s-layout__content {
+  margin-left: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+/* Sidebar */
+.s-sidebar__trigger {
+  width: 4em;
+  display: flex !important;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4em;
+}
+
+.s-sidebar__trigger > i {
+  display: inline-block;
+  margin: 1.5em 0 0 1.5em;
+}
+
+.s-sidebar__nav {
+  width: 4em;
+  left: 0;
+  position: fixed;
+  top: auto;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+  min-height: 600px;
+  height: 100vh;
+  background: white;
+  color: rgb(37, 36, 37);
+}
+
+.s-sidebar__nav:hover,
+.s-sidebar__nav:focus,
+.s-sidebar__trigger:hover + .s-sidebar__nav,
+.s-sidebar__trigger:focus + .s-sidebar__nav {
+  width: 15em;
+}
+
+.s-sidebar__nav ul {
+  top: 12em;
+  position: absolute;
+
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 15em;
+  border-top: #00000029 solid 1px;
+}
+
+.s-sidebar__nav ul li {
+  border-bottom: #00000029 solid 1px;
+  font: normal normal normal 15px/16px Roboto !important;
+  letter-spacing: 0px;
+  color: #4e4e4e;
+  opacity: 1;
+  width: 100%;
+}
+
+.s-sidebar__nav ul li:hover {
+  background: #e9eaeb;
+}
+.active {
+  color: rgb(117, 116, 116) !important;
+  background: #ededee !important;
+}
+
+.s-sidebar__nav-link {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 4em;
+  align-items: center;
+}
+
+.s-sidebar__nav-link img {
+  padding: 19px 10px;
+}
+
+.s-sidebar__nav-link em {
+  font-style: normal !important;
+  position: absolute;
+  top: 50%;
+  left: 4em;
+  transform: translateY(-50%);
+}
+
+.s-sidebar__nav-link > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+}
+
+.s-sidebar__nav-link > i::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mobile First */
+@media (min-width: 42em) {
+  .icone-menu {
+    display: flex !important;
+    color: rgba(56, 56, 56, 0.87) !important;
+  }
+  .small-icon-menu-bottom {
+    display: flex !important;
+    color: rgba(56, 56, 56, 0.87) !important;
+  }
+
+  .s-layout {
+    width: 4em;
+    position: relative;
+  }
+  .log-img {
+    display: none;
+  }
+  .icon-menu-bottom {
+    display: none;
+  }
+  .s-layout__content {
+    margin-left: 4em;
+  }
+
+  /* Sidebar */
+  .s-sidebar__trigger {
+    width: 4em;
+  }
+  .s-sidebar__nav ul {
+    top: 12em;
+  }
+
+  .s-sidebar__nav {
+    width: 4em;
+    left: 0;
+  }
+
+  .s-sidebar__nav:hover,
+  .s-sidebar__nav:focus,
+  .s-sidebar__trigger:hover + .s-sidebar__nav,
+  .s-sidebar__trigger:focus + .s-sidebar__nav {
+    width: 15em;
+  }
+}
+
+@media (min-width: 80em) {
+  .icone-menu {
+    color: rgba(56, 56, 56, 0.87) !important;
+    display: none !important;
+  }
+  .small-icon-menu-bottom {
+    color: rgba(56, 56, 56, 0.87) !important;
+    display: none !important;
+  }
+
+  .log-img {
+    display: flex;
+  }
+  .icon-menu-bottom {
+    display: flex;
+  }
+
+  .s-layout {
+    width: 15em;
+    position: relative;
+  }
+
+  .s-layout__content {
+    margin-left: 15em;
+  }
+
+  /* Sidebar */
+  .s-sidebar__trigger {
+    display: none;
+  }
+
+  .s-sidebar__nav {
+    width: 15em;
+  }
+
+  .s-sidebar__nav ul {
+    top: 12em;
+  }
+}

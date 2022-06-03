@@ -7,14 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
 import Listening from "./listening/listening";
 import FacialRecognition from "./facialRecognition/authenticate";
+import LayoutDesktop from "./management/pages/desktop/layout/layout";
+import {HomeDesktop} from "./management/pages/desktop/home/home";
 
 ReactDOM.render(
+
     <Router>
         <Routes>
             <Route exact path="/" element={<App/>}/>
-            <Route exact path="/home" element={<HomePage/>}/>
+            <Route exact path="/testListening" element={<HomePage/>}/>
             <Route exact path="/listening" element={<Listening/>}/>
             <Route exact path="/signin" element={<FacialRecognition/>}/>
+            <Route exact path="/home" element={<LayoutDesktop children={HomeDesktop}/>}/>
+
         </Routes>
     </Router>,
   document.getElementById('root')

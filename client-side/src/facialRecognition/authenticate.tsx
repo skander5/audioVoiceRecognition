@@ -37,6 +37,7 @@ export const Authenticate = (props:any) => {
                 <div id="label-container"></div>
 
             </div>*/}
+            <div className="">
             <h1 className="text-center mt-5">Login</h1>
             <Box className="d-flex flex-row justify-content-center align-items-center mt-5">
                 <Grow
@@ -61,6 +62,7 @@ export const Authenticate = (props:any) => {
                     </Paper>
                 </Grow>
             </Box>
+            </div>
         </>
     );
 

@@ -12,9 +12,9 @@ interface TabPanelProps {
 
 export const SubscriptionInfo = (props : any) => {
 
-    const [value, setValue] = useState();
+    const [value, setValue] = useState(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: any) => {
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
 
@@ -54,7 +54,7 @@ export const SubscriptionInfo = (props : any) => {
             {...(true ? { timeout: 1000 } : {})}
         >
             <Paper sx={{ height: '100%' }} elevation={4}>
-                {/*<Box sx={{ width: '100%' }}>
+                {<Box sx={{ width: '100%' }}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                             <Tab label="Item One" {...a11yProps(0)} />
@@ -71,7 +71,7 @@ export const SubscriptionInfo = (props : any) => {
                     <TabPanel value={value} index={2}>
                         Item Three
                     </TabPanel>
-                </Box>*/}
+                </Box>}
             </Paper>
         </Grow>
     );

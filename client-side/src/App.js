@@ -271,9 +271,9 @@ function App() {
   };
 
   useEffect(() => {
-    loadModel();
-    buildModel();
-    console.log(modelTobuild);
+    //loadModel();
+    //buildModel();
+    //console.log(modelTobuild);
   },[]);
 
 

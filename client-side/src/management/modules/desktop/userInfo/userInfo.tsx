@@ -40,6 +40,7 @@ export const UserInfo = (props : any) => {
                     spacing={0}
                     direction="column"
                     alignItems="center"
+                    className="p-2"
                 >
 
                     <Button style={{ width: "75%" }}  variant="contained" className="mt-1">Déclarer un sinistres</Button>

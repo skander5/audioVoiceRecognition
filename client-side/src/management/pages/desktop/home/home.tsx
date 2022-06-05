@@ -5,7 +5,8 @@ import Grow from "@mui/material/Grow/Grow";
 import Box from "@mui/material/Box";
 import UserInfo from "../../../modules/desktop/userInfo/userInfo";
 import SubscriptionInfo from "../../../modules/desktop/subsciptionInfo/subcriptionInfo";
-
+import UserDetails from "../../../modules/desktop/userDetails/userDetails";
+import BankInfo from "../../../modules/desktop/bankInfo/bankInfo";
 
 export const HomeDesktop = () => {
 
@@ -24,16 +25,16 @@ export const HomeDesktop = () => {
         <div className="d-flex flex-row justify-content-center align-items-center mt-5 container">
             <Grid container spacing={2}>
 
-                    <Grid item xs={6} style={{ height: "600px" }}>
+                    <Grid item xs={6} style={{ height: "690px" }}>
                         <Grid container spacing={3} style={{ height: "100%" }}>
                             <Grid item xs={12}>
                                 <UserInfo/>
                             </Grid>
                             <Grid item xs={12} >
-                                <Item />
+                                <UserDetails />
                             </Grid>
                             <Grid item xs={12}>
-                                <Item />
+                                <BankInfo />
                             </Grid>
                         </Grid>
                     </Grid>

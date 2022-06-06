@@ -4,6 +4,7 @@ import * as tf from "@tensorflow/tfjs";
 import * as speech from "@tensorflow-models/speech-commands"
 import {useEffect, useState} from "react";
 
+
 function App() {
 
   const [model, setModel] = useState(null);
@@ -278,8 +279,10 @@ function App() {
 
 
   return (
+
       <div className="App">
-        <header className="App-header">
+
+          <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -309,7 +312,6 @@ function App() {
           <button onClick={cleanData}>showList</button>
 
         </header>
-
       </div>
   );
 }

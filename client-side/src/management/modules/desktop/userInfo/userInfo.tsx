@@ -3,11 +3,16 @@ import {Alert, Box, Button, Grid, Paper, styled, TextField} from "@mui/material"
 import avatar from "../../../../ressources/avatar.png";
 import Grow from "@mui/material/Grow/Grow";
 import './userInfo.css'
+import {useDispatch, useSelector} from 'react-redux' ;
+import {findPrismic} from "../../redux/prismic/prismicActions";
+import {connect} from 'react-redux'
 
 export const UserInfo = (props : any) => {
 
     const [model, setModel] = useState(null);
 
+    const data = useSelector<any>(state => state.prismicData) ;
+    const dispatch = useDispatch();
 
     return (
 
@@ -43,8 +48,8 @@ export const UserInfo = (props : any) => {
                     className="p-2"
                 >
 
-                    <Button style={{ width: "75%" }}  variant="contained" className="mt-1">Déclarer un sinistres</Button>
-                    <Button style={{ width: "75%" }}  variant="outlined" className="mt-1">Suivre mes sinistres</Button>
+                    <Button style={{ width: "75%" }}  variant="contained" className="mt-1" onClick={()=> {dispatch(findPrismic())}}>Déclarer un sinistres</Button>
+                    <Button style={{ width: "75%" }}  variant="outlined" className="mt-1" onClick={()=> {console.log('sssss',data)}}>Suivre mes sinistres</Button>
                     <Button style={{ width: "75%" }}  variant="contained" className="mt-1 bg-warning">Régler ma cotisation</Button>
                 </Grid>
             </Paper>
@@ -52,4 +57,17 @@ export const UserInfo = (props : any) => {
     );
 
 };
+
+const mapStatePrismic = (state:any) => {
+    return {
+        prismicData: state.prismicData
+    }
+}
+
+const mapDispatch = (dispatch:any) => {
+    return {
+        findPrismic: () => dispatch(findPrismic())
+    }
+}
+
 export default UserInfo ;

@@ -7,10 +7,13 @@ import UserInfo from "../../../modules/desktop/userInfo/userInfo";
 import SubscriptionInfo from "../../../modules/desktop/subsciptionInfo/subcriptionInfo";
 import UserDetails from "../../../modules/desktop/userDetails/userDetails";
 import BankInfo from "../../../modules/desktop/bankInfo/bankInfo";
+import {findPrismic} from "../../../modules/redux/prismic/prismicActions";
+import {useDispatch} from "react-redux";
 
 export const HomeDesktop = () => {
 
     const [model, setModel] = useState(null);
+    const dispatch = useDispatch();
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,6 +23,11 @@ export const HomeDesktop = () => {
         color: theme.palette.text.secondary,
         height : '100%',
     }));
+
+    useEffect(() => {
+        console.log('ddcdcd');
+        dispatch(findPrismic());
+    },[]);
 
     return (
         <div className="d-flex flex-row justify-content-center align-items-center mt-5 container">

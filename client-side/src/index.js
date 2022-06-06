@@ -9,19 +9,22 @@ import Listening from "./listening/listening";
 import FacialRecognition from "./facialRecognition/authenticate";
 import LayoutDesktop from "./management/pages/desktop/layout/layout";
 import {HomeDesktop} from "./management/pages/desktop/home/home";
+import {Provider} from "react-redux";
+import store from "./management/modules/redux/store";
 
 ReactDOM.render(
-
-    <Router>
-        <Routes>
+    <Provider store={store}>
+        <Router>
+            <Routes>
             <Route exact path="/" element={<App/>}/>
             <Route exact path="/testListening" element={<HomePage/>}/>
             <Route exact path="/listening" element={<Listening/>}/>
             <Route exact path="/signin" element={<FacialRecognition/>}/>
             <Route exact path="/home" element={<LayoutDesktop children={HomeDesktop}/>}/>
 
-        </Routes>
-    </Router>,
+            </Routes>
+        </Router>
+    </Provider>,
   document.getElementById('root')
 );
 

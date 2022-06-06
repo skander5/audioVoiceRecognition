@@ -3,7 +3,7 @@ const app = express();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const request = require('request');
-
+const cors = require('cors');
 const router = require('./routes/routes')
 //------ DB Config ------//
 
@@ -11,6 +11,7 @@ const router = require('./routes/routes')
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(cors());
 
 //------ Routes ------//
 

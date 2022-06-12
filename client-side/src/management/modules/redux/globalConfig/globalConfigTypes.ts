@@ -1,0 +1,2 @@
+export const GET_GLOBAL_CONF_DATA = 'GET_GLOBAL_CONF_DATA' ;
+

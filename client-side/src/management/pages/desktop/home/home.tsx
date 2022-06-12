@@ -7,8 +7,9 @@ import UserInfo from "../../../modules/desktop/userInfo/userInfo";
 import SubscriptionInfo from "../../../modules/desktop/subsciptionInfo/subcriptionInfo";
 import UserDetails from "../../../modules/desktop/userDetails/userDetails";
 import BankInfo from "../../../modules/desktop/bankInfo/bankInfo";
-import {findPrismic} from "../../../modules/redux/prismic/prismicActions";
+import {findPrismic, findPrismicDataInfo, findPrismicInfo} from "../../../modules/redux/prismic/prismicActions";
 import {useDispatch} from "react-redux";
+import {findPrismicDatas} from "../../../modules/redux/prismic/api/prismicApi";
 
 export const HomeDesktop = () => {
 
@@ -24,10 +25,6 @@ export const HomeDesktop = () => {
         height : '100%',
     }));
 
-    useEffect(() => {
-        console.log('ddcdcd');
-        dispatch(findPrismic());
-    },[]);
 
     return (
         <div className="d-flex flex-row justify-content-center align-items-center mt-5 container">

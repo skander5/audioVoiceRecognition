@@ -24,9 +24,15 @@ export const BankInfo = (props : any) => {
                     container
                     spacing={0}
                     direction="row"
+                    justifyContent="space-between"
                 >
-                    <Box className="userDetailsInfo p-3">{'Information personnelles'}</Box>
-                    <Alert className="w-20 h-40 mt-2" style={{ marginLeft: "223px" }} icon={false} severity="info"><EditIcon/></Alert>
+                    <Box className="userDetailsInfo p-3">{'Coordonnées bancaires'}</Box>
+                    <Box
+                        m={1}
+                        display="flex"
+                    >
+                        <Alert icon={false} severity="info"><EditIcon/></Alert>
+                    </Box>
                 </Grid>
 
                 <Grid

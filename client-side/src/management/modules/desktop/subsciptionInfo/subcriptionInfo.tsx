@@ -1,7 +1,22 @@
 import React, {useEffect, useState} from "react";
-import {Alert, Box, Button, Grid, Paper, styled, Tab, Tabs, TextField, Typography} from "@mui/material";
+import {
+    Alert,
+    Box,
+    BoxProps,
+    Button,
+    Card,
+    CardContent,
+    Grid,
+    Paper,
+    styled,
+    Tab,
+    Tabs,
+    TextField,
+    Typography
+} from "@mui/material";
 import avatar from "../../../../ressources/avatar.png";
 import Grow from "@mui/material/Grow/Grow";
+import {CalendarToday, FolderOpen, Storefront} from "@mui/icons-material";
 
 
 interface TabPanelProps {
@@ -23,6 +38,28 @@ export const SubscriptionInfo = (props : any) => {
             id: `simple-tab-${index}`,
             'aria-controls': `simple-tabpanel-${index}`,
         };
+    }
+
+
+    function Item(props: BoxProps) {
+        const { sx, ...other } = props;
+        return (
+            <Box
+                sx={{
+                    p: 4,
+                    m: 4,
+                    width: '70%',
+                    height : '30%' ,
+                    bgcolor: '#F0FAFF',
+                    border: '1px solid',
+                    borderColor:  'grey.300',
+                    borderRadius: 2,
+                    fontSize: '0.875rem',
+                    fontWeight: '700',
+                }}
+                {...other}
+            />
+        );
     }
 
     function TabPanel(props: TabPanelProps) {
@@ -54,24 +91,66 @@ export const SubscriptionInfo = (props : any) => {
             {...(true ? { timeout: 1000 } : {})}
         >
             <Paper sx={{ height: '100%' }} elevation={4}>
-                {<Box sx={{ width: '100%' }}>
-                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                            <Tab label="Item One" {...a11yProps(0)} />
-                            <Tab label="Item Two" {...a11yProps(1)} />
-                            <Tab label="Item Three" {...a11yProps(2)} />
+                <Box sx={{ width: '100%',height: '100%' }}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
+                        <Tabs value={value} onChange={handleChange}>
+                            <Tab label="Détails de l'adhésion" {...a11yProps(0)} />
+                            <Tab label="Produit assuré" {...a11yProps(1)} />
+                            <Tab label="Contact" {...a11yProps(2)} />
                         </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
-                        Item One
+                        <Grid
+                            sx={{ height: '100%' }}
+                            container
+                            spacing={0}
+                            alignItems="center"
+                            justifyContent="center"
+                            direction="row"
+                        >
+                        <Item>
+                            <Grid
+                                container
+                                spacing={0}
+                                direction="column"
+                            >
+                                <FolderOpen/>
+                                <Box className="">{'Adhésion'}</Box>
+                                <Box className="userDetails">{'12/09/2020'}</Box>
+                            </Grid>
+                        </Item>
+                        <Item>
+                            <Grid
+                                container
+                                spacing={0}
+                                direction="column"
+                            >
+                                    <CalendarToday/>
+                                <Box className="">{'Début de garantie'}</Box>
+                                <Box className="userDetails">{'12/09/2020'}</Box>
+                            </Grid>
+                        </Item>
+                            <Item>
+                                <Grid
+                                    container
+                                    spacing={0}
+                                    direction="column"
+                                >
+                                    <Storefront/>
+                                    <Box className="">{'Magasin'}</Box>
+                                    <Box className="userDetails">{'Magasin Lyon 12 rue le prince'}</Box>
+
+                                </Grid>
+                            </Item>
+                        </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Item Two
+                        Produit assuré
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        Item Three
+                        Contact
                     </TabPanel>
-                </Box>}
+                </Box>
             </Paper>
         </Grow>
     );

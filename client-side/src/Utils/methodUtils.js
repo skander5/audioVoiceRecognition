@@ -19,3 +19,5 @@ export const numberTab = ['Zero','Un','Deux','Trois','Quatre','Cinq','Six','Sept
 
 
 export const wait = (s) => new Promise((rs) => setTimeout(rs, s));
+
+

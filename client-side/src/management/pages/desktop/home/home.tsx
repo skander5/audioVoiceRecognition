@@ -25,6 +25,10 @@ export const HomeDesktop = () => {
         height : '100%',
     }));
 
+    useEffect(() => {
+        document.body.style.backgroundColor = "#F7F9FC"
+    },[]);
+
 
     return (
         <div className="d-flex flex-row justify-content-center align-items-center mt-5 container">

@@ -25,13 +25,13 @@ export const UserDetails = (props : any) => {
                     container
                     spacing={0}
                     direction="row"
+                    justifyContent="space-between"
                 >
                     <Box className="userDetailsInfo p-3">{'Information personnelles'}</Box>
                     <Box
                         m={1}
                         display="flex"
-                        justifyContent="flex-end"
-                        alignItems="flex-end">
+                    >
                         <Alert icon={false} severity="info"><EditIcon/></Alert>
                     </Box>
                 </Grid>
@@ -61,7 +61,7 @@ export const UserDetails = (props : any) => {
                         spacing={0}
                         direction="row"
                     >
-                    <CallIcon/><Box className="userDetails px-3 p-2">{'12 rue le roi'}</Box>
+                        <CallIcon/><Box className="userDetails px-3 p-2">{'12 rue le roi'}</Box>
                     </Grid>
                 </Grid>
 

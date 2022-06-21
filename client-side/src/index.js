@@ -11,6 +11,7 @@ import LayoutDesktop from "./management/pages/desktop/layout/layout";
 import {HomeDesktop} from "./management/pages/desktop/home/home";
 import {Provider} from "react-redux";
 import store from "./management/modules/redux/store";
+import HomeMobile from "./management/pages/mobile/home/home";
 
 ReactDOM.render(
     <Provider store={store}>
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route exact path="/listening" element={<Listening/>}/>
             <Route exact path="/signin" element={<FacialRecognition/>}/>
             <Route exact path="/home" element={<LayoutDesktop children={HomeDesktop}/>}/>
+            <Route exact path="/mobile" element={<HomeMobile/>}/>
 
             </Routes>
         </Router>

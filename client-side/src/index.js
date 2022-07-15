@@ -12,18 +12,25 @@ import {HomeDesktop} from "./management/pages/desktop/home/home";
 import HomeMobile from "./management/pages/mobile/home/home";
 import {Provider} from "react-redux";
 import store from "./management/modules/redux/store";
+import {BrowserView, MobileView} from 'react-device-detect';
+import {isMobile} from 'react-device-detect';
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Routes>
-            <Route exact path="/" element={<App/>}/>
-            <Route exact path="/testListening" element={<HomePage/>}/>
-            <Route exact path="/listening" element={<Listening/>}/>
-            <Route exact path="/signin" element={<FacialRecognition/>}/>
-            <Route exact path="/home" element={<LayoutDesktop children={HomeDesktop}/>}/>
-            <Route exact path="/mobile" element={<HomeMobile/>}/>
-
+                {!isMobile ? <>
+                    <Route exact path="/" element={<App/>}/>
+                    <Route exact path="/testListening" element={<HomePage/>}/>
+                    <Route exact path="/listening" element={<Listening/>}/>
+                    <Route exact path="/signin" element={<FacialRecognition/>}/>
+                    <Route exact path="/home" element={<LayoutDesktop children={HomeDesktop}/>}/>
+                    </>
+                    :
+                    <>
+                    <Route exact path="/home" element={<HomeMobile/>}/>
+                    </>
+                }
             </Routes>
         </Router>
     </Provider>,

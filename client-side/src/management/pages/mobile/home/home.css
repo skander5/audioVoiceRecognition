@@ -1,0 +1,20 @@
+body,
+html {
+    height: 100%;
+}
+#root  {
+    height: 100%;
+}
+.mobileContainer{
+    height: 90%;
+}
+.mobile-page-routes {
+    bottom: 50px !important;
+    bottom: 0;
+    height: 100% !important;
+    width: 50vw;
+    margin-left: 25vw;
+    border: none;
+    background-color: #fbfbfb;
+    overflow: hidden;
+}

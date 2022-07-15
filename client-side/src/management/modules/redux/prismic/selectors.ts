@@ -22,6 +22,18 @@ export const prismicSelector = (prismicInfo:any,dataConf:any) => {
     } ;
 };
 
+export const prismicCardSearch = (prismicInfo:any,dataConf:any) => {
+    const productGroupCode = dataConf?.product_group_code ;
+    const productGroupLabel = dataConf?.product_group_label ;
+
+    if(productGroupCode === '639')
+        return prismicInfo?.data?.results[0]?.data?.card639 ;
+
+    if(productGroupCode === '752')
+        return prismicInfo?.data?.results[0]?.data?.card752 ;
+
+}
+
 export const fff = () => {
     return "logo_639";
 }
